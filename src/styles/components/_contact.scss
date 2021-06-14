@@ -1,0 +1,51 @@
+.email-link{
+ color: black;
+ 
+ &:hover{
+     color: rgb(138, 138, 138);
+     text-decoration: none;
+ }
+}
+
+
+.form-control{
+    border: none !important;
+    margin : 2.5rem 0;
+}
+
+input[type='text'],
+input[type='email'],
+textarea{
+    padding: 0.8rem 1.6rem;
+    border-radius: 2px;
+    width: 100%;
+    text-align: center;
+    resize: none !important;
+}
+
+ 
+.error{
+    color: red;
+    text-align: center;
+    margin-top: -5px; 
+}
+
+
+button{
+    &.btn{ 
+        padding: .8rem 2.5rem;
+        border-radius: 0%;
+        font-size: 14px;
+        margin-top: 3rem;
+        margin-left: 0.8rem; 
+        width: 95%;
+        justify-self: center;
+        justify-items: center;
+
+
+        &:hover{
+            background-color: #46767b;
+            border-color: #46767b;
+        }
+    }
+}

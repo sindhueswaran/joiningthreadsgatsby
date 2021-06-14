@@ -1,0 +1,18 @@
+.team-items{
+    display: flex;
+    flex-direction: row;
+    text-align: center;  
+
+    .team-member{
+        width: 100rem; 
+    }
+    
+    .team-img { 
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 8rem; 
+    }
+}
+

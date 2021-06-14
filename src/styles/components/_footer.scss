@@ -1,0 +1,16 @@
+footer{
+    background-color: darkgrey;
+    padding: 2rem 0;
+    
+    a{
+        color: black;
+
+    &:hover{
+        color: rgb(131, 130, 130);
+    }    
+    }
+
+    p {
+        padding-bottom: 0;
+    }
+}

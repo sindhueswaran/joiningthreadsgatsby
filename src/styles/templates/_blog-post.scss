@@ -1,0 +1,16 @@
+.blog-post{
+    margin-top: 10rem;
+}
+
+.gatsby-image-wrapper  {
+    margin: .4rem;
+}
+
+.next-prev-item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;  
+    font-size: 2rem;
+    padding: 2rem; 
+}

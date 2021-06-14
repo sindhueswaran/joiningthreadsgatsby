@@ -1,0 +1,48 @@
+@use 'components/header';
+@use 'components/hero';
+@use 'components/whatwedo';
+@use 'components/support';
+@use 'components/partners';
+@use 'components/team';
+@use 'components/contact';
+@use 'components/footer';
+@use 'pages/blog-list';
+@use 'templates/blog-post';
+
+
+h1 {
+    font-family: "Pacifico"; 
+}
+
+h2, h3, h4, h5, h6 { 
+    font-family: "Oranienbaum";
+    color: #46767b;  
+}
+
+p { 
+    font-family: "Roboto"; 
+}
+
+section{
+    margin: 3rem 0; 
+}
+
+.section-title{
+    text-align: center; 
+    padding-top: 8rem;
+    text-transform: uppercase;
+}
+
+.section-text{
+    text-align: center;
+}
+
+a{
+    color: black !important;
+    text-decoration: none !important;
+    
+    &:hover{
+     color: rgba(61, 61, 61, 0.493) !important; 
+  } 
+ }
+ 

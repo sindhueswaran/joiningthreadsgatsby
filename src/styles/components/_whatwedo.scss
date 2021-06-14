@@ -1,0 +1,21 @@
+.wwd-items{ 
+    background-color: rgb(255, 255, 255);
+}
+
+.wwd-item{ 
+    margin: 2rem 0; 
+
+    &:nth-child(even) {
+        flex-direction: row-reverse; // 3
+        text-align: right;
+      }
+     
+}
+
+.wwd-text{  
+    padding: 1rem 3rem;
+}
+
+.wwd-img { 
+    width: 60%; 
+}
