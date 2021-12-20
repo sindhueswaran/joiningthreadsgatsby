@@ -4,14 +4,18 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+
+
+  /* BLOGS */
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.js`) 
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql(
+  const blogresult = await graphql(
     `
       {
         allMarkdownRemark(
+          filter: {frontmatter: {template: {eq: "blog"}}}
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
@@ -26,15 +30,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   )
 
-  if (result.errors) {
+  if (blogresult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      blogresult.errors
     )
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const posts = blogresult.data.allMarkdownRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -56,6 +60,63 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+/* PRODUCTS */
+// Define a template for products
+const productPost = path.resolve(`./src/templates/product-post.js`)
+
+// Get all markdown product posts
+const productresult = await graphql(
+  `
+    {
+      allMarkdownRemark(
+        filter: {frontmatter: {template: {eq: "product"}}} 
+        limit: 1000
+      ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `
+)
+
+if (productresult.errors) {
+  reporter.panicOnBuild(
+    `There was an error loading your blog posts`,
+    productresult.errors
+  )
+  return
+}
+
+const products = productresult.data.allMarkdownRemark.nodes
+
+// Create blog posts pages
+// But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+// `context` is available in the template as a prop and as a variable in GraphQL
+
+if (products.length > 0) {
+  products.forEach((product, index) => {
+    const previousProductId = index === 0 ? null : products[index - 1].id
+    const nextProductId = index === products.length - 1 ? null : products[index + 1].id
+
+    createPage({
+      path: product.fields.slug,
+      component: productPost,
+      context: {
+        id: product.id,
+        previousProductId,
+        nextProductId,
+      },
+    })
+  })
+}
+
+
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -72,6 +133,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
@@ -85,7 +147,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SiteSiteMetadata {
       author: Author
       siteUrl: String
-      email: String
       social: Social
     }
 

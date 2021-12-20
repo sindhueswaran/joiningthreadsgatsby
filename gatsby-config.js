@@ -3,7 +3,7 @@ module.exports = {
     title: `Joining Threads`,
     author: {
       name: `Mogs`,
-      summary: `who lives and works in Rishukesh.`,
+      summary: `who lives and works in Rishikesh.`,
     },
     description: `Encouraging creativity empowers and strengthens our resourcefulness and talent, availing possibilities to improve livelihoods. We share craft skills with women and children in projects located in North India.`,
     siteUrl: `https://joiningthreads.com/`,
@@ -16,6 +16,7 @@ module.exports = {
       { name: `WHAT WE DO`, url: `/#whatwedo`, },
       { name: `PARTNERS`, url: `/#partners`, },
       { name: `TEAM`, url: `/#team`, },
+      { name: `PRODUCTS`, url: `/products`, },
       { name: `BLOG`, url: `/blog`, },
       { name: `CONTACT`, url: `/#contact`, },
     ],
@@ -31,11 +32,19 @@ module.exports = {
     // `gatsby-remark-prismjs`,
     `gatsby-remark-copy-linked-files`,
     `gatsby-remark-smartypants`,
+    'gatsby-plugin-zopfli',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/products`,
+        name: `products`,
       },
     },
     {
