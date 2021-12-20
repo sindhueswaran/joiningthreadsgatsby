@@ -3,7 +3,7 @@
 import * as React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-// import { Col, Row, Card, CardGroup} from 'react-bootstrap'  
+import { Container} from 'react-bootstrap'  
 
 const TEAMSECTION = {
   title: 'OUR TEAM',
@@ -41,6 +41,8 @@ const Team = () => (
     `}
     render={data => (
     <section id="team"> 
+    <Container>
+      
       <h3 className="section-title"> {TEAMSECTION.title} </h3>  
       <p className="section-text"> {TEAMSECTION.text} </p>
         <div className="team-items row">
@@ -64,6 +66,8 @@ const Team = () => (
               );
             })}
           </div>
+          
+          </Container>
         </section>
       )}
     />

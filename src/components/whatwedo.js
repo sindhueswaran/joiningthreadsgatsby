@@ -47,11 +47,8 @@ const WhatWeDo = () => (
  
   render={data => (
     <section id="whatwedo">
-     
-    <Container>  
-        <h2 className="section-title">{WHATWEDOSECTION.title}</h2> 
-      
-
+      <Container>  
+        <h2 className="section-title">{WHATWEDOSECTION.title}</h2>
         <div className="wwd-items"> 
           {WHATWEDO.map(({ title, image, text }) => {
             const img = data.allFile.edges.find(

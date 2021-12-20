@@ -27,7 +27,7 @@ const ContactForm = () => {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} >
             <Form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="contact" value="contact" />
-                <div className=" form-control"> 
+                <div className="form-control"> 
                 <Field type="text" id="name" name="name" placeholder="Your Name" />
                 <ErrorMessage name="name" component={FormError} />
                 </div>

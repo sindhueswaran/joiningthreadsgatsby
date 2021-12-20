@@ -28,7 +28,7 @@ const Hero = () => {
           > 
           <div className="hero-overlay">
           <div className="hero-text">
-            <h1> Joining threads <br/> Joining lives</h1>< br/>
+            <h1> Joining threads <br/> Joining lives </h1>< br/>
             <h4 className="mb-3">Encouraging creativity empowers and strengthens our resourcefulness and talent, 
             availing possibilities to improve livelihoods. We share craft skills with women 
             and children in projects located in North India.</h4>

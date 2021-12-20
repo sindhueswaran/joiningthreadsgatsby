@@ -7,11 +7,13 @@
 @use 'components/contact';
 @use 'components/footer';
 @use 'pages/blog-list';
+@use 'pages/product-list';
 @use 'templates/blog-post';
+@use 'templates/product-post';
 
 
 h1 {
-    font-family: "Pacifico"; 
+    font-family: "Pacifico";
 }
 
 h2, h3, h4, h5, h6 { 
@@ -24,12 +26,16 @@ p {
 }
 
 section{
-    margin: 3rem 0; 
+    padding: 4rem 0; 
 }
+
+section:nth-of-type(even) {
+    background: rgb(216, 216, 216);
+  }
 
 .section-title{
     text-align: center; 
-    padding-top: 8rem;
+    padding-top: 4rem;
     text-transform: uppercase;
 }
 

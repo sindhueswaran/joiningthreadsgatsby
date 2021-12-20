@@ -8,23 +8,24 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 
 const Header = () => {
     const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      site {
-          siteMetadata {
-          nav {
-              name
-              url
-          }
-          title
-          }
-      }
-      }
-  `)
+        query HeaderQuery {
+        site {
+            siteMetadata {
+            nav {
+                name
+                url
+            }
+            title
+            }
+            }
+        }
+    `
+)
  
 const nav = data.site.siteMetadata?.nav
   return (
     <>
-        <Container fluid>
+        <Container>
             <Navbar fixed="top" expand="lg" variant="light" bg="light">
             <Navbar.Brand href="/">  
                 <StaticImage

@@ -11,16 +11,23 @@
 .form-control{
     border: none !important;
     margin : 2.5rem 0;
+    border: 2px solid black;
 }
 
 input[type='text'],
 input[type='email'],
 textarea{
     padding: 0.8rem 1.6rem;
-    border-radius: 2px;
+    // border-radius: 2px;
     width: 100%;
     text-align: center;
     resize: none !important;
+    border: 1px solid black;
+
+    &:hover{
+        border: 2px solid black;
+
+    }
 }
 
  

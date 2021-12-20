@@ -3,6 +3,7 @@
 import * as React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Container } from "react-bootstrap";
 
 const SUPPORTSECTION = {
   title: 'Would you like to help?',
@@ -43,6 +44,9 @@ const Support = () => (
  
   render={data => (
     <section id="support"> 
+    <Container>
+
+   
       <h3 className="section-title">{SUPPORTSECTION.title}</h3>   
 
       <div className="row support-items">
@@ -62,6 +66,7 @@ const Support = () => (
         </div> 
         )})}
       </div> 
+      </Container>
     </section>
   )}
   />
