@@ -30,7 +30,7 @@ const onSubmit = (event) => {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({
-      "form-name": event.target.getAttribute("name"),
+      "form-name": event.target.getAttribute("contact"),
        
     })
   }).then(() => navigate("/thank-you/")).catch(error => alert(error))
