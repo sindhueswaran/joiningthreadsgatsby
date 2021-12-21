@@ -8,7 +8,7 @@ import ContactForm from "./form";
 
 const Contact = () => {
    const data = useStaticQuery(graphql`
-     query ContactQuery {
+     query ThankYouQuery {
       site {
         siteMetadata {
           email
