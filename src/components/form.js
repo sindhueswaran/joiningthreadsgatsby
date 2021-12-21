@@ -3,10 +3,10 @@ import { Button } from 'react-bootstrap'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import  * as Yup from 'yup'
 import FormError from "./formerror"
+import { navigate } from "gatsby"
 
 const initialValues = {
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     message: '',
   }
@@ -17,9 +17,29 @@ const validationSchema = Yup.object({
     message: Yup.string().required('Required'),
 })
 
-const onSubmit = values => { 
-    console.log(values)
+
+function encode(data) {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&")
   }
+
+const onSubmit = (event) => {
+  event.preventDefault()
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": event.target.getAttribute("contact"),
+       
+    })
+  }).then(() => navigate("/thank-you/")).catch(error => alert(error))
+}
+
+
+// const onSubmit = values => { 
+//     console.log(values)
+//   }
  
 const ContactForm = () => {
 
