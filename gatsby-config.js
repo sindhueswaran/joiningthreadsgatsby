@@ -16,7 +16,7 @@ module.exports = {
       { name: `WHAT WE DO`, url: `/#whatwedo`, },
       { name: `PARTNERS`, url: `/#partners`, },
       { name: `TEAM`, url: `/#team`, },
-      { name: `PRODUCTS`, url: `/products`, },
+      // { name: `PRODUCTS`, url: `/products`, },
       { name: `BLOG`, url: `/blog`, },
       { name: `CONTACT`, url: `/#contact`, },
     ],
@@ -29,10 +29,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-gatsby-cloud`,
-    // `gatsby-remark-prismjs`,
-    `gatsby-remark-copy-linked-files`,
-    `gatsby-remark-smartypants`,
-    'gatsby-plugin-zopfli',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -53,7 +49,7 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },  
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -70,61 +66,73 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     // {
-    //   resolve: `gatsby-plugin-feed`,
+    //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
-    //     query: `
-    //       {
-    //         site {
-    //           siteMetadata {
-    //             title
-    //             description
-    //             siteUrl
-    //             site_url: siteUrl
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, allMarkdownRemark } }) => {
-    //           return allMarkdownRemark.nodes.map(node => {
-    //             return Object.assign({}, node.frontmatter, {
-    //               description: node.excerpt,
-    //               date: node.frontmatter.date,
-    //               url: site.siteMetadata.siteUrl + node.fields.slug,
-    //               guid: site.siteMetadata.siteUrl + node.fields.slug,
-    //               custom_elements: [{ "content:encoded": node.html }],
-    //             })
-    //           })
-    //         },
-    //         query: `
-    //           {
-    //             allMarkdownRemark(
-    //               sort: { order: DESC, fields: [frontmatter___date] },
-    //             ) {
-    //               nodes {
-    //                 excerpt
-    //                 html
-    //                 fields {
-    //                   slug
-    //                 }
-    //                 frontmatter {
-    //                   title
-    //                   date
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         `,
-    //         output: "/rss.xml",
-    //       },
-    //     ],
+    //     trackingId: `ADD YOUR TRACKING ID HERE`,
     //   },
     // },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Gatsby Starter Blog RSS Feed",
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -132,22 +140,16 @@ module.exports = {
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/jtjllogo.png`,
+        icon: `src/images/jtjllogo.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
+    `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-  flags: {
-    PRESERVE_WEBPACK_CACHE: true,
-  }
 }
