@@ -46,7 +46,6 @@ const Support = () => (
     <section id="support"> 
     <Container>
 
-   
       <h3 className="section-title">{SUPPORTSECTION.title}</h3>   
 
       <div className="row support-items">
@@ -56,7 +55,7 @@ const Support = () => (
              ).node;  
             
         return (  
-        <div className="col-12 col-md-4 support-item" key={text}>
+        <div className="col-12 col-sm-4 support-item" key={text}>
           <GatsbyImage
             className="support-img" 
             image={img.childImageSharp.gatsbyImageData}

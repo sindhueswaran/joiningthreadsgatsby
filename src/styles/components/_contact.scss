@@ -10,7 +10,7 @@
 
 .form-control{
     border: none !important;
-    margin : 2.5rem 0;
+    margin: 0.5rem 0;
     border: 2px solid black;
 }
 
@@ -26,7 +26,6 @@ textarea{
 
     &:hover{
         border: 2px solid black;
-
     }
 }
 
@@ -43,7 +42,7 @@ button{
         padding: .8rem 2.5rem;
         border-radius: 0%;
         font-size: 14px;
-        margin-top: 3rem;
+        margin-top: 0.5rem;
         margin-left: 0.8rem; 
         width: 95%;
         justify-self: center;

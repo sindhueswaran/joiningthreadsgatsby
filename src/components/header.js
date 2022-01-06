@@ -25,7 +25,7 @@ const Header = () => {
 const nav = data.site.siteMetadata?.nav
   return (
     <>
-        <Container>
+        <Container >
             <Navbar fixed="top" expand="lg" variant="light" bg="light">
             <Navbar.Brand href="/">  
                 <StaticImage
@@ -39,9 +39,9 @@ const nav = data.site.siteMetadata?.nav
                     alt="Joining Threads Logo"
                 />
             </Navbar.Brand>   
-            <Navbar.Toggle  aria-controls="jtnavbar"/> 
+            <Navbar.Toggle className="nav-toggle" aria-controls="jtnavbar"/> 
             <Navbar.Collapse className="justify-content-end" id="jtnavbar">
-                <Nav className="justify-content-center" >
+                <Nav className="main-nav justify-content-center" >
                     {nav.map((data, index) => {
                         return (  
                             <Nav.Item key={{index}}>

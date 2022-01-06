@@ -8,8 +8,17 @@
     &:nth-child(even) {
         flex-direction: row-reverse; // 3
         text-align: right;
-      }
-     
+      }    
+}
+
+@media (max-width: 768px){
+    .wwd-item{ 
+        margin: 1.5rem 0; 
+    
+        &:nth-child(even) { 
+            text-align: left;
+          }    
+    }
 }
 
 .wwd-text{  
