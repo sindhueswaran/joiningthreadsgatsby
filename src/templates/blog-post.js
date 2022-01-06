@@ -89,7 +89,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: {eq: $id}, frontmatter: {categories: {eq: "blog"}}) {
+    markdownRemark(id: {eq: $id}) {
       id
       excerpt(pruneLength: 160)
       html
